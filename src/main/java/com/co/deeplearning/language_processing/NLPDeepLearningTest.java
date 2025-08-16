@@ -17,7 +17,7 @@ public class NLPDeepLearningTest implements IDeepLearningTest {
     public void execute() {
         System.out.println("***Executing NLP Test logic...***");
         try {
-            String filePath = new ClassPathResource("sentences.txt").getFile().getAbsolutePath();
+            String filePath = new ClassPathResource("datasets/sentences.txt").getFile().getAbsolutePath();
             // Strip white spaces before and after for each line
             SentenceIterator iterator = new BasicLineIterator(filePath);
             TokenizerFactory tokenizerFactory = new DefaultTokenizerFactory();

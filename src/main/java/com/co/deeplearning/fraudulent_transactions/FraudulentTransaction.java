@@ -2,7 +2,6 @@ package com.co.deeplearning.fraudulent_transactions;
 
 import com.co.deeplearning.DeepLearningUtil;
 import com.co.deeplearning.interfaces.IDeepLearningTest;
-import com.co.deeplearning.language_processing.NLPDeepLearningTest;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -23,9 +22,7 @@ import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
 import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize;
 import org.nd4j.linalg.learning.config.Adam;
-import org.nd4j.linalg.lossfunctions.LossFunctions;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
 
 public class FraudulentTransaction implements IDeepLearningTest {
@@ -36,7 +33,7 @@ public class FraudulentTransaction implements IDeepLearningTest {
         System.out.println("Executing Fraudulent Transaction Detection Test");
         // Implementation for fraudulent transaction detection goes here
         try (RecordReader reader = new CSVRecordReader(1, ',')){
-            FileSplit file = DeepLearningUtil.getFileFromResource("creditcard.csv", reader);
+            FileSplit file = DeepLearningUtil.getFileFromResource("datasets/creditcard.csv", reader);
             // Initialize the RecordReader with the fraudulent transactions dataset 284807
             reader.initialize(file);
             int batchSize = Math.toIntExact(DeepLearningUtil.getFileSize(reader)) - 1;

@@ -4,7 +4,6 @@ import com.co.deeplearning.DeepLearningUtil;
 import com.co.deeplearning.interfaces.IDeepLearningTest;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
-import org.datavec.api.split.FileSplit;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.nn.conf.BackpropType;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -13,7 +12,6 @@ import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
-import org.nd4j.common.io.ClassPathResource;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -36,7 +34,7 @@ public class DeepLearningTestNeuronWithTANH implements IDeepLearningTest {
 
         try (RecordReader reader = new CSVRecordReader(1, ',')) {
             // Initialize the RecordReader with the Iris dataset
-            reader.initialize(DeepLearningUtil.getFileFromResource("iris.txt", reader));
+            reader.initialize(DeepLearningUtil.getFileFromResource("datasets/iris.txt", reader));
 
             // Create a DataSetIterator from the RecordReader
             DataSetIterator iterator = new RecordReaderDataSetIterator(
